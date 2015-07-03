@@ -1,2 +1,11 @@
 #!/bin/bash
 
+if [ $# -lt 1 -o "$1" = '-h' -o "$1" = '--help' ] ; then
+  echo -e 'usage : ./convert <text_file_with_a_Kunena_syntax>\n'
+  exit 0
+fi
+
+while read line
+do
+  echo $line|sed -e "s/ul\]/list\]/g"|sed -e "s/ol\]/list=1\]/g"|sed -e "s/\[li\]/\[\*\]/g"|sed -e "s/\[\\li\]//g"|sed -e "s/\[size=/\[size=1/g"
+done < "$1"
