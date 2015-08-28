@@ -7,5 +7,5 @@ fi
 
 while read line
 do
-  echo $line|sed -e "s/ul\]/list\]/g"|sed -e "s/ol\]/list=1\]/g"|sed -e "s/\[li\]/\[\*\]/g"|sed -e "s/\[\\li\]//g"|sed -e "s/\[size=/\[size=1/g"
+  echo $line|sed -e "s/ul\]/list\]/g"|sed -e "s/\[ol\]/\[list=1\]/g"|sed -e "s/\[\/ol\]/\[\/list\]/g"|sed -e "s/\[li\]/\[\*\]/g"|sed -e "s/\[\/li\]//g"|sed -e "s/\[size=/\[size=1/g"
 done < "$1"
